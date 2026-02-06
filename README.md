@@ -1,14 +1,14 @@
-# JL Solutions
+# TrailCrafter
 
-App development services: fix bugs, build new apps, manage yours, and add AI automation. Free 30-minute consultation — no obligation.
+AI-powered custom trail design for fitness equipment. Create virtual running and biking trails for Peloton, treadmills, and exercise bikes through natural language conversations with AI.
 
 ## Features
 
-- 🔧 **Fix my app**: Bug fixes, performance optimization, and support
-- 🏗️ **Create an app**: Design, development, and launch
-- 📦 **Manage my app**: Updates, hosting, backups, monitoring (subscription)
-- 🤖 **AI automation**: Chatbots, workflows, and AI integration
-- 📞 **Free consultation**: 30-minute call to discuss your needs
+- 🤖 **AI-Powered Design**: Chat with AI to design custom trails
+- 🎬 **Trail Generation**: Generate video trails from your descriptions
+- 💳 **Subscription Model**: Multiple plans with different trail generation limits
+- 🏃 **Fitness Optimized**: Optimized for Peloton and other large fitness screens
+- 🌍 **Endless Possibilities**: Create trails from real-world locations to fantasy worlds
 
 ## Getting Started
 
@@ -16,7 +16,7 @@ App development services: fix bugs, build new apps, manage yours, and add AI aut
 
 - Node.js 18+ 
 - PostgreSQL database
-- OpenAI API key (for AI lead summaries)
+- OpenAI API key
 - Stripe account (for payments)
 
 ### Installation
@@ -34,13 +34,10 @@ cp .env.example .env
 
 Fill in your environment variables:
 - `DATABASE_URL`: PostgreSQL connection string
-- `OPENAI_API_KEY`: Your OpenAI API key (for AI lead summaries)
+- `OPENAI_API_KEY`: Your OpenAI API key
 - `STRIPE_SECRET_KEY`: Your Stripe secret key
 - `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`: Your Stripe publishable key
-- `NEXT_PUBLIC_CALENDLY_URL`: Your Calendly booking URL (optional)
-- `SLACK_WEBHOOK_URL`: Slack webhook for lead notifications (optional)
-- `RESEND_API_KEY`: Resend API key for auto-reply emails (optional)
-- `RESEND_FROM_EMAIL`: From email address for Resend (optional)
+- `JWT_SECRET`: A random secret for JWT tokens
 
 4. Set up the database:
 ```bash
@@ -65,32 +62,45 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ## Key Pages
 
 - `/` - Landing page
-- `/subscribe` - Services and pricing
-- `/portal` - Partner & seller portal
-- `/portal/leads` - Lead management dashboard
-- `/portal/services` - Service descriptions
-- `/portal/referral` - Partner referral program
+- `/create` - AI chat interface for trail design
+- `/trails` - Browse available trails
+- `/trails/[id]` - View and play a trail (optimized for fitness screens)
+- `/subscribe` - Subscription plans
+- `/dashboard` - User dashboard for managing trails
 
 ## Tech Stack
 
 - **Next.js 14** - React framework with App Router
 - **TypeScript** - Type safety
 - **Prisma** - Database ORM
-- **OpenAI API** - AI lead summaries and qualification
+- **OpenAI API** - AI chat and trail generation
 - **Stripe** - Payment processing
 - **Tailwind CSS** - Styling
 - **Framer Motion** - Animations
 
-## Lead Generation System
+## Trail Generation
 
-The site includes a complete lead generation system:
+Trail generation works by:
+1. User describes their desired trail through chat
+2. AI asks clarifying questions and refines the design
+3. Once ready, the trail is generated (video/image sequence)
+4. Trail is optimized for fitness equipment screens
+5. User can play the trail during workouts
 
-- **Free consultation form**: Captures leads before redirecting to Calendly
-- **AI-powered summaries**: Automatically generates lead summaries and suggested actions
-- **Portal dashboard**: View and manage all leads at `/portal/leads`
-- **Optional automation**: Slack notifications and Resend email auto-replies
+## Subscription Plans
 
-See `docs/LEADS.md` for full documentation.
+- **Basic**: 5 trails/month - $9.99/month
+- **Pro**: 20 trails/month - $19.99/month (Most Popular)
+- **Premium**: Unlimited trails - $39.99/month
+
+## Future Enhancements
+
+- Video generation integration (e.g., RunwayML, Pika Labs)
+- Real-time trail preview
+- Social features (share trails, follow creators)
+- Integration with fitness equipment APIs
+- Mobile app
+- VR/AR support
 
 ## License
 
